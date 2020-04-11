@@ -22,6 +22,10 @@ Spring Boot - Creating your first Spring Boot application
         - Application properties (spring.profiles)
 - custom attributes in application properties file (e.g app.version)
 - @Value
+- @Configuration
+- @Bean
+- DataSourceBuilder
+- DataSource
         
 ## Order precedence custom application configuration
 1. Command line args
