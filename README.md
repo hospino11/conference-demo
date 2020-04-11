@@ -14,3 +14,21 @@ Spring Boot - Creating your first Spring Boot application
 - Jackson
     - @JsonIgnore
     - @JsonIgnoreProperties
+- Customize Spring Boot application
+    - Internal sources
+        - application properties file
+    - External sources
+        - OS environment variables
+        - Application properties (spring.profiles)
+        
+## Order precedence custom application configuration
+1. Command line args
+2. SPRING_APPLICATION_JSON args
+3. Servlet parameters
+4. JNDI
+5. Java System Properties
+6. OS environment variable
+7. Profile properties
+8. Application properties
+9. @PropertySource annotations
+10. Default properties
