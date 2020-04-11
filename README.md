@@ -20,6 +20,8 @@ Spring Boot - Creating your first Spring Boot application
     - External sources
         - OS environment variables
         - Application properties (spring.profiles)
+- custom attributes in application properties file (e.g app.version)
+- @Value
         
 ## Order precedence custom application configuration
 1. Command line args
