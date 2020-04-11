@@ -35,8 +35,8 @@ public class SpeakerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Speaker speaker) {
-        speakerRepository.saveAndFlush(speaker);
+    public Speaker create(@RequestBody Speaker speaker) {
+        return speakerRepository.saveAndFlush(speaker);
     }
 
     @DeleteMapping("{id}")
@@ -53,7 +53,6 @@ public class SpeakerController {
                 .company(speaker.getCompany())
                 .firstName(speaker.getFirstName())
                 .lastName(speaker.getLastName())
-                .sessions(speaker.getSessions())
                 .speakerBio(speaker.getSpeakerBio())
                 .speakerPhoto(speaker.getSpeakerPhoto()).build();
 

@@ -3,7 +3,6 @@ package com.pluralsight.conferencedemo.controller;
 import com.pluralsight.conferencedemo.model.Session;
 import com.pluralsight.conferencedemo.repository.SessionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +35,8 @@ public class SessionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Session session) {
-        sessionRepository.saveAndFlush(session);
+    public Session create(@RequestBody Session session) {
+        return sessionRepository.saveAndFlush(session);
     }
 
     @DeleteMapping("{id}")
@@ -50,7 +49,11 @@ public class SessionController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @RequestBody Session session) {
         Session currentSession = sessionRepository.getOne(id);
-        BeanUtils.copyProperties(session, currentSession, "sessionId");
-        sessionRepository.saveAndFlush(currentSession);
+        Session sessionToUpdate = currentSession.toBuilder()
+                .sessionDescription(session.getSessionDescription())
+                .sessionLength(session.getSessionLength())
+                .sessionName(session.getSessionName())
+                .speakers(session.getSpeakers()).build();
+        sessionRepository.saveAndFlush(sessionToUpdate);
     }
 }

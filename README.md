@@ -11,3 +11,6 @@ Spring Boot - Creating your first Spring Boot application
     - saveAndFlush: store and flush the data into the database.
     - deleteById: This doesn't allow delete the entity which has children.
 - @PutMapping: PUT expects all attributes to be passed in. Missing attributes will be updated to null. If you need to update certain attributes you can use PATCH
+- Jackson
+    - @JsonIgnore
+    - @JsonIgnoreProperties

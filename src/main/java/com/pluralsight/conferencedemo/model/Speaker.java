@@ -1,5 +1,6 @@
 package com.pluralsight.conferencedemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Value;
 
@@ -30,6 +31,8 @@ public class Speaker {
 
     String company;
 
+    String title;
+
     @Column(name = "speaker_bio")
     String speakerBio;
 
@@ -37,6 +40,7 @@ public class Speaker {
     @Column(name = "speaker_photo")
     byte[] speakerPhoto;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "speakers")
     List<Session> sessions;
 }

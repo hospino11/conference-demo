@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Value
-@Builder
+@Builder(toBuilder = true)
 @Entity(name = "sessions")
 public class Session {
 
