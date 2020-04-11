@@ -38,3 +38,12 @@ Spring Boot - Creating your first Spring Boot application
 8. Application properties
 9. @PropertySource annotations
 10. Default properties
+
+## Configuration annotations
+Spring Boot provides annotations to specify conditions on the configuration:
+- @ConditionalOnClass
+- @ConditionalOnMissingClass
+- @ConditionalOnBean
+- @ConditionalOnMissingBean
+- @ConditionalOnProperty
+- @ConditionalOnResource
