@@ -1,6 +1,8 @@
 package com.pluralsight.conferencedemo.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +29,9 @@ public class PersistenceConfiguration {
     String dbPassword;
 
     @Bean
+    @ConditionalOnProperty(
+            name = "spring.jpa.database-platform",
+            havingValue = "org.hibernate.dialect.MySQL5Dialect")
     public DataSource dataSource() {
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.url("jdbc:mysql://" + dbHost + "/" + dbName + "?useSSL=false&allowPublicKeyRetrieval=true");
