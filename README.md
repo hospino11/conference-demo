@@ -26,6 +26,12 @@ Spring Boot - Creating your first Spring Boot application
 - @Bean
 - DataSourceBuilder
 - DataSource
+- Spring Boot Containers
+    - Tomcat
+    - Jetty
+    - Undertow
+- configuration tag
+    - executable tag for building an executable artifact on UNIX systems
         
 ## Order precedence custom application configuration
 1. Command line args
@@ -47,3 +53,16 @@ Spring Boot provides annotations to specify conditions on the configuration:
 - @ConditionalOnMissingBean
 - @ConditionalOnProperty
 - @ConditionalOnResource
+
+## Common Cloud platforms:
+- Could Foundry
+- Heroku
+- Google Cloud
+- Amazon Web Services
+- Microsoft Azure
+
+## Cloud perpesctive
+Cloud offering implies some challenges like:
+- Logging
+- Service Integration
+- Firewall and security
